@@ -3,7 +3,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const taskList = document.getElementById('taskList');
 
     addTaskBtn.addEventListener('click', function() {
-        // Implement adding task functionality here
         const title = prompt('Enter task title:');
         const description = prompt('Enter task description:');
 
@@ -15,7 +14,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 },
                 body: JSON.stringify({ title: title, description: description })
             })
-            .then(response => response.json())
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+            })
             .then(task => {
                 taskList.innerHTML = '';
                 const taskItem = document.createElement('div');
@@ -24,13 +28,19 @@ document.addEventListener('DOMContentLoaded', function() {
             })
             .catch(error => {
                 console.error('Error creating task:', error);
+                alert('Failed to create task.  Check console for details.');
             });
         }
     });
 
     // Fetch tasks from the API
     fetch('http://localhost:5000/tasks')
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+        })
         .then(tasks => {
             taskList.innerHTML = '';
             tasks.forEach(task => {
@@ -41,5 +51,6 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .catch(error => {
             console.error('Error fetching tasks:', error);
+            alert('Failed to fetch tasks. Check console for details.');
         });
 });
