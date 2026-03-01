@@ -3,6 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 import os
 from dotenv import load_dotenv
 from unittest.mock import patch
+import datetime
 
 load_dotenv()
 
@@ -14,6 +15,8 @@ class Task(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(255), nullable=False)
     description = db.Column(db.Text)
+    created_at = db.Column(db.DateTime, default=datetime.datetime.utcnow)
+    updated_at = db.Column(db.DateTime, default=datetime.datetime.utcnow, onupdate=datetime.datetime.utcnow)
 
     def __repr__(self):
         return f'<Task {self.title}>'
@@ -22,7 +25,9 @@ class Task(db.Model):
         return {
             'id': self.id,
             'title': self.title,
-            'description': self.description
+            'description': self.description,
+            'created_at': self.created_at.isoformat(),
+            'updated_at': self.updated_at.isoformat()
         }
 
 @app.route('/tasks', methods=['GET'])
