@@ -1,3 +1,4 @@
+```css
 body {
     font-family: sans-serif;
     margin: 20px;
@@ -15,4 +16,10 @@ h1 {
     border: 1px solid #ccc;
     padding: 10px;
     margin-bottom: 5px;
+    background-color: #f9f9f9;
 }
+
+.task:hover {
+    background-color: #eee;
+}
+```

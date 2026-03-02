@@ -1,3 +1,4 @@
+```javascript
 document.addEventListener('DOMContentLoaded', function() {
     const addTaskBtn = document.getElementById('addTaskBtn');
     const taskList = document.getElementById('taskList');
@@ -21,14 +22,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 return response.json();
             })
             .then(task => {
-                taskList.innerHTML = '';
                 const taskItem = document.createElement('div');
                 taskItem.textContent = task.title;
+                taskItem.classList.add('task'); // Add a class for styling
                 taskList.appendChild(taskItem);
             })
             .catch(error => {
                 console.error('Error creating task:', error);
-                alert('Failed to create task.  Check console for details.');
+                alert('Failed to create task. Check console for details.');
             });
         }
     });
@@ -46,6 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
             tasks.forEach(task => {
                 const taskItem = document.createElement('div');
                 taskItem.textContent = task.title;
+                taskItem.classList.add('task'); // Add a class for styling
                 taskList.appendChild(taskItem);
             });
         })
@@ -54,3 +56,4 @@ document.addEventListener('DOMContentLoaded', function() {
             alert('Failed to fetch tasks. Check console for details.');
         });
 });
+```

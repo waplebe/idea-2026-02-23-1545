@@ -1,3 +1,4 @@
+```markdown
 # Simple Task Manager API
 
 **Description:**
@@ -62,3 +63,11 @@ A task manager is a fundamental tool for productivity. This API provides a found
 **License:**
 
 MIT License
+
+**New Features:**
+
+*   **Task Styling:** Added CSS classes to task items for basic styling (background color, hover effect).
+*   **Comprehensive Tests:** Added pytest tests for all API endpoints (GET, POST, PUT, DELETE) to ensure functionality and prevent regressions.
+*   **Improved Documentation:** Updated the README to include a section on new features and a more detailed explanation of the API.
+*   **Bug Fix:** Fixed a potential error in the frontend where the task list would not update correctly after creating a new task.
+```

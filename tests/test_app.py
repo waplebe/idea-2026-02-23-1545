@@ -1,3 +1,4 @@
+```python
 import pytest
 from app import app, db
 from unittest.mock import patch
@@ -20,6 +21,7 @@ def test_get_tasks(mock_load_dotenv):
 
 @patch('app.load_dotenv')
 def test_get_task(mock_load_dotenv):
+    from app import Task
     Task.query.get_or_404.return_value = Task(id=1, title='Test Task', description='Test Description')
     response = app.get('/tasks/1')
     assert response.status_code == 200
@@ -49,3 +51,4 @@ def test_delete_task(mock_load_dotenv):
     Task.query.get_or_404.return_value = Task(id=1, title='Test Task', description='Test Description')
     response = app.delete('/tasks/1')
     assert response.status_code == 204
+```
