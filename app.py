@@ -1,3 +1,4 @@
+```python
 from flask import Flask, jsonify, request
 from flask_sqlalchemy import SQLAlchemy
 import os
@@ -78,3 +79,4 @@ def not_found(error):
 if __name__ == '__main__':
     db.init_app(app)
     app.run(debug=True)
+```

@@ -70,4 +70,6 @@ MIT License
 *   **Comprehensive Tests:** Added pytest tests for all API endpoints (GET, POST, PUT, DELETE) to ensure functionality and prevent regressions.
 *   **Improved Documentation:** Updated the README to include a section on new features and a more detailed explanation of the API.
 *   **Bug Fix:** Fixed a potential error in the frontend where the task list would not update correctly after creating a new task.
+*   **Data Persistence:** Implemented SQLite database for persistent storage of tasks.
+*   **Date/Time Stamps:** Added `created_at` and `updated_at` timestamps to tasks for tracking.
 ```
