@@ -42,7 +42,7 @@ A task manager is a fundamental tool for productivity. This API provides a found
 *   `GET /tasks`: Retrieves all tasks.
 *   `GET /tasks/{id}`: Retrieves a specific task by ID.
 *   `POST /tasks`: Creates a new task.  Request body: `{ "title": "Task Title", "description": "Task Description" }`
-*   `PUT /tasks/{id}`: Updates an existing task. Request body: `{ "title": "New Title", "description": "New Description" }`
+*   `PUT /tasks/{id}`: Updates an existing task. Request body: `{ "title": "New Title", "description": "New Description", "completed": true }`
 *   `DELETE /tasks/{id}`: Deletes a task by ID.
 
 **Examples:**
@@ -54,7 +54,7 @@ A task manager is a fundamental tool for productivity. This API provides a found
     `curl http://localhost:5000/tasks`
 
 *   **Update a task:**
-    `curl -X PUT -H "Content-Type: application/json" -d '{"id": 1, "title": "Updated Task", "description": "Updated Description"}' http://localhost:5000/tasks/1`
+    `curl -X PUT -H "Content-Type: application/json" -d '{"id": 1, "title": "Updated Task", "description": "Updated Description", "completed": true}' http://localhost:5000/tasks/1`
 
 **Error Handling:**
 
@@ -72,4 +72,5 @@ MIT License
 *   **Bug Fix:** Fixed a potential error in the frontend where the task list would not update correctly after creating a new task.
 *   **Data Persistence:** Implemented SQLite database for persistent storage of tasks.
 *   **Date/Time Stamps:** Added `created_at` and `updated_at` timestamps to tasks for tracking.
+*   **Task Completion:** Added a `completed` field to the Task model and API endpoint to allow marking tasks as complete.
 ```

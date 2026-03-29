@@ -18,6 +18,7 @@ class Task(db.Model):
     description = db.Column(db.Text)
     created_at = db.Column(db.DateTime, default=datetime.datetime.utcnow)
     updated_at = db.Column(db.DateTime, default=datetime.datetime.utcnow, onupdate=datetime.datetime.utcnow)
+    completed = db.Column(db.Boolean, default=False)
 
     def __repr__(self):
         return f'<Task {self.title}>'
@@ -28,7 +29,8 @@ class Task(db.Model):
             'title': self.title,
             'description': self.description,
             'created_at': self.created_at.isoformat(),
-            'updated_at': self.updated_at.isoformat()
+            'updated_at': self.updated_at.isoformat(),
+            'completed': self.completed
         }
 
 @app.route('/tasks', methods=['GET'])
@@ -62,6 +64,7 @@ def update_task(id):
     data = request.get_json()
     task.title = data.get('title', task.title)
     task.description = data.get('description', task.description)
+    task.completed = data.get('completed', task.completed)
     db.session.commit()
     return jsonify(task.to_dict())
 

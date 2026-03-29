@@ -17,9 +17,16 @@ h1 {
     padding: 10px;
     margin-bottom: 5px;
     background-color: #f9f9f9;
+    display: flex;
+    align-items: center;
 }
 
-.task:hover {
-    background-color: #eee;
+.task.completed {
+    background-color: #e0e0e0;
+}
+
+.task span {
+    flex-grow: 1;
+    margin-left: 10px;
 }
 ```

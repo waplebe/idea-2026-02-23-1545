@@ -39,7 +39,7 @@ def test_create_task(mock_load_dotenv):
 @patch('app.load_dotenv')
 def test_update_task(mock_load_dotenv):
     Task.query.get_or_404.return_value = Task(id=1, title='Old Task', description='Old Description')
-    data = {'title': 'New Task', 'description': 'New Description'}
+    data = {'title': 'New Task', 'description': 'New Description', 'completed': True}
     request_data = request.get_json()
     assert request_data == data
     response = app.put('/tasks/1', data=data)
