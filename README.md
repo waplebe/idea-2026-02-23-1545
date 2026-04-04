@@ -73,4 +73,5 @@ MIT License
 *   **Data Persistence:** Implemented SQLite database for persistent storage of tasks.
 *   **Date/Time Stamps:** Added `created_at` and `updated_at` timestamps to tasks for tracking.
 *   **Task Completion:** Added a `completed` field to the Task model and API endpoint to allow marking tasks as complete.
+*   **Task Completion UI:** Added a checkbox to each task in the UI to mark it as complete.  The UI updates the task status via the API.
 ```

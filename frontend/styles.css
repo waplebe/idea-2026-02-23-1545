@@ -19,6 +19,7 @@ h1 {
     background-color: #f9f9f9;
     display: flex;
     align-items: center;
+    justify-content: space-between; /* Align title and checkbox */
 }
 
 .task.completed {
@@ -28,5 +29,9 @@ h1 {
 .task span {
     flex-grow: 1;
     margin-left: 10px;
+}
+
+.task input[type="checkbox"] {
+    margin: 0;
 }
 ```
